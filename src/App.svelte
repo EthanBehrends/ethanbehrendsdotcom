@@ -1,5 +1,6 @@
 <script>
 import Header from "./Header.svelte";
+import Resume from "./components/resume/Resume.svelte"
 import './fonts.css'
 
 let colors = {
@@ -14,20 +15,20 @@ $: colorStyle = Object.entries(colors).map(([color, val]) => `--color-${color}: 
 
 </script>
 
-<style global>
-  .scandia-web {
+<style>
+  :global(.scandia-web) {
     font-family: 'scandia-web', serif;
   }
-  .scandia-line-web {
+  :global(.scandia-line-web) {
     font-family: 'scandia-line-web', serif;
   }
-  .source-code-pro {
+  :global(.source-code-pro) {
     font-family: 'source-code-pro', serif;
   }
-  .bree-serif {
+  :global(.bree-serif) {
     font-family: 'Bree Serif', serif;
   }
-  .pt-sans {
+  :global(.pt-sans) {
     font-family: 'PT Sans', serif;
   }
   p {
@@ -60,6 +61,11 @@ $: colorStyle = Object.entries(colors).map(([color, val]) => `--color-${color}: 
     height: 1.2em;
     background: var(--color-green);
   }
+  .card {
+    background: white;
+    border-radius: .5em;
+    box-shadow: 0px 5px 15px -5px gray;
+  }
 </style>
 
 <div class="contents" style={colorStyle}>
@@ -86,90 +92,27 @@ $: colorStyle = Object.entries(colors).map(([color, val]) => `--color-${color}: 
       </div>
     </div>
   </div>
-  
-  <div class="w-full min-h-[100vh] flex flex-col items-center justify-center p-16 bg-gray text-white">
-    <div class="w-170 bg-white shadow rounded p-8 grid grid-cols-[10rem_1fr] grid-rows-[min-content]">
-      <div class="font-semibold text-darkGreen text-5xl border-b-darkGreen border-b-3 pb-4 col-span-2 flex items-center">
+
+  <div class="w-full min-h-[100vh] bg-white grid place-items-center">
+    <div class="w-200 card">
+      <div class="flex <md:flex-col">
+        <div class="flex-grow-[2] p-4">
+          <div class="text-lg font-semibold">Messaging Platform</div>
+          <div class="text-xs w-full text-gray-600">
+            Full-stack messaging platform mirroring the core functionality of apps like Discord or Slack
+          </div>
+        </div>
         <div class="flex-grow">
-          Ethan Behrends
-        </div>
-        <div class="flex flex-col text-xs text-right text-gray-200">
-          <div>epbehrends@gmail.com</div>
-          <div>913-216-4629</div>
-        </div>
-      </div>
-
-      <div class="font-semibold text-darkGreen py-4 border-r-1 border-gray">Experience</div>
-      
-      <div class="p-4">
-        <div class="font-semibold text-darkGreen text-xl">Software Developer</div>
-        <div class="text-gray text-xs">
-          <span class="font-semibold">HYFIN</span>
-          (2021 - Present)
-        </div>
-        <div class="text-gray text-xs">
-          Tech stack: Node, MongoDB, Redis, Svelte, Java, React, AWS
-        </div>
-        <ul class="text-gray text-xs pt-2 pl-2" style="list-style-type: '-'">
-          <li class="pl-2">Accelerated early-stage development of payment platform up to successful launch.</li>
-          <li class="pl-2">Constructed powerful UI infrastructure enabling developers to rapidly develop new features.</li>
-          <li class="pl-2">Led development on three major projects that became marketing focal points.</li>
-          <li class="pl-2">Spearheaded drastic refactors to better align codebase with SOLID design principles, increasing maintainability and readability of code.</li>
-          <li class="pl-2">Engineered client support utility that allowed non-technical employees to easily navigate data and diagnose client issues.</li>
-          <li class="pl-2">Developed software integrations with Intuit Quickbooks and two other industry partners.</li>
-          <li class="pl-2">Engineered new, retooled existing infrastructure allowing web-client to navigate a data-intensive application in intuitive and performant manner.</li>
-        </ul>
-      </div>
-
-      <div class="font-semibold text-darkGreen py-4 border-r-1 border-gray">Projects</div>
-      
-      <div class="p-4">
-        <div class="font-semibold text-darkGreen text-xl">Messaging Platform</div>
-        <div class="text-gray text-xs">
-          Tech stack: Node, Express, MongoDB, React, SocketIO
-        </div>
-        <div class="text-gray text-xs">Full-stack messaging platform mirroring the core functionality of apps like Slack, Discord.</div>
-        <ul class="text-gray text-xs pt-2 pl-2" style="list-style-type: '-'">
-          <li class="pl-2">Responsive user interface built with React and the Material UI library.</li>
-          <li class="pl-2">Secure account creation with password hashing and salting.</li>
-          <li class="pl-2">Utilized WebSockets to achieve real-time messaging and notifications.</li>
-        </ul>
-
-        <div class="font-semibold text-darkGreen text-xl pt-4">Wordle Clone</div>
-        <div class="text-gray text-xs">
-          Tech stack: Svelte, Node, Express
-        </div>
-        <div class="text-gray text-xs">Enhanced version of the popular word game Wordle.</div>
-        <ul class="text-gray text-xs pt-2 pl-2" style="list-style-type: '-'">
-          <li class="pl-2">Implemented system to create and share user-created puzzles.</li>
-          <li class="pl-2">Received over 3,000 site visitors.</li>
-        </ul>
-      </div>
-
-      <div class="font-semibold text-darkGreen py-4 border-r-1 border-gray">Skills</div>
-      
-      <div class="p-4 grid grid-cols-2">
-        <div>
-          <div class="font-semibold text-darkGreen text-xl">Languages</div>
-          <ul class="text-gray text-xs pt-2 pl-2" style="list-style-type: '-'">
-            <li class="pl-2">Javascript/Node.js</li>
-            <li class="pl-2">Java</li>
-            <li class="pl-2">HTML, CSS</li>
-            <li class="pl-2">C++</li>
-            <li class="pl-2">Python</li>
-          </ul>
-        </div>
-        <div>
-          <div class="font-semibold text-darkGreen text-xl">Technologies/Frameworks</div>
-          <ul class="text-gray text-xs pt-2 pl-2" style="list-style-type: '-'">
-            <li class="pl-2">SvelteJS</li>
-            <li class="pl-2">ReactJS</li>
-            <li class="pl-2">MongoDB</li>
-            <li class="pl-2">Redis</li>
-            <li class="pl-2">PostgreSQL</li>
-          </ul>
+          <img class="h-full w-full object-contain" src="https://via.placeholder.com/550" />
         </div>
       </div>
     </div>
+  </div>
+  <div class="w-full min-h-[100vh] flex flex-col items-center justify-center p-16 bg-gray text-white">
+    <div class="shadow">
+      <Resume />
+
+    </div>
+
   </div>
 </div>

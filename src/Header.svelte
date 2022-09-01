@@ -48,6 +48,16 @@ import LineBox from "./LineBox.svelte";
             }
         }
     }
+
+    const icons = [{
+        icon: "lucide:github",
+        href: "https://google.com",
+        alt: "Check out my GitHub!"
+    }, {
+        icon: "lucide:linkedin",
+        href: "https://linkedin.com/in/ethan-behrends",
+        alt: "Connect with me on LinkedIn!"
+    }]
 </script>
 
 <style>
@@ -131,8 +141,8 @@ import LineBox from "./LineBox.svelte";
             <div class="text-2xl source-code-pro text-teal-600" use:typewriter={{delay: 3000, keepCursor: true}}>Software Engineer</div>
         </div>
         {#await sleep(6000) then}
-            <div class="" in:slide>
-                <div in:fade class="border-b border-r border-teal-300 button-clip group cursor-pointer">
+            <div class="" in:fly>
+                <div in:slide class="border-b border-r border-teal-300 button-clip group cursor-pointer">
                     <div class=" active:bg-teal-300 active:text-black border-0 ring-1 ring-offset-transparent ring-teal-300 ring-offset-1 text-teal-300 p-4 text-2xl transition duration-200 relative transform group-hover:-translate-y-2 group-hover:-translate-x-2">
                         Get In Touch
                     </div>
@@ -148,9 +158,14 @@ import LineBox from "./LineBox.svelte";
             <circle style="stroke-width: .1px" class="stroke-teal-200 opacity-50 fill-transparent draw" cx="50" cy="54" r="48" />
         </svg>
         <div class="absolute bottom-0 left-20 flex flex-col items-center gap-2 text-teal-200">
-            <Icon icon="lucide:github" width="28px" height="28px"/>
+            {#each icons as {icon, href, alt}, i}
+            {#if i != 0}
             <div class="w-[1px] h-5 bg-teal-200"></div>
-            <Icon icon="lucide:linkedin" width="28px" height="28px"/>
+            {/if}
+            <a {href} {alt} target="_blank" class="group pb-0 hover:pb-2 transition-all duration-200 ">
+                <Icon {icon} width="28px" height="28px" class="" />
+            </a>
+            {/each}
             <div class="w-[1px] h-20 bg-teal-200"></div>
         </div>
     </div>
