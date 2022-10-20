@@ -1,7 +1,6 @@
 <script>
     import { onMount } from "svelte"
-import Tetris from "./Tetris.svelte";
-import LineBox from "./LineBox.svelte";
+import DarkModeToggle from "./components/DarkModeToggle.svelte";
     import Icon from "@iconify/svelte"
     import { slide, fly, fade } from "svelte/transition"
 
@@ -76,97 +75,86 @@ import LineBox from "./LineBox.svelte";
             opacity: 0;
         }
     }
-    .text-shadow {
-        /* text-shadow: 1px 1px 4px rgba(255, 255, 255, .75); */
+
+    .header-container {
+        width: 100%;
+        height: 100vh;
+        position: relative; 
+        overflow: hidden;
+        background: hsla(var(--primary-h) var(--primary-s) 95% / 100%) radial-gradient(hsla(var(--primary-h) var(--primary-s) var(--primary-l) / 40%) 12%, transparent 50%);
+        background-repeat: no-repeat;
+        background-size: 250% 60%;
+        background-position-y: 175%;
+        background-position-x: 50%;
     }
 
-    .blob {
-        animation: rotate 50s infinite linear;
+    :global(.dark .header-container) {
+        background: hsla(var(--primary-h) var(--primary-s) 5% / 100%) radial-gradient(hsla(var(--primary-h) var(--primary-s) var(--primary-l) / 40%) 12%, transparent 50%);
+        background-repeat: no-repeat;
+        background-size: 250% 60%;
+        background-position-y: 175%;
+        background-position-x: 50%;
     }
 
-    .leaf-background {
-        background-image: url("/assets/leaf.jpg");
-        background-size: cover;
+    .button {
+        background: linear-gradient(160deg, hsla(var(--primary-h) var(--primary-s) var(--primary-l) / 70%), var(--color-primary));
+        box-shadow: 2px 3px 12px -4px hsl(var(--primary-h) var(--primary-s) 20%);
+        padding: 1rem;
+        border-radius: 100px;
+        font-size: 1.25rem;
+        font-weight: 500;
+        cursor: pointer;
+        transform: translateY(0px);
+        transition: .2s;
+        user-select: none;
+    }
+    .button:hover {
+        box-shadow: 8px 9px 22px -4px hsla(var(--primary-h) var(--primary-s) 20% / 70%);
+    }
+    .button:active {
+        box-shadow: 8px 6px 22px -4px hsla(var(--primary-h) var(--primary-s) 20% / 70%);
+        transform: translateY(3px);
     }
 
-    .gradient {
-        background: linear-gradient(0deg, #ffffff10 0%, transparent 50%)
+    .icon-cont {
+        padding-bottom: 0rem;
+        transition: .2s;
     }
-
-    .draw {
-        stroke-dasharray: 40 80;
-        animation: draw 10s infinite linear
-    }
-    .draw:nth-child(2) {
-        animation-delay: -2s;
-        animation-duration: 12s;
-    }
-    .draw:nth-child(3) {
-        animation-delay: -4s;
-        animation-duration: 14s;
-    }
-    .draw:nth-child(4) {
-        animation-delay: -6s;
-        animation-duration: 8s;
-    }
-
-    @keyframes draw {
-        from {
-            stroke-dasharray: 0 80;
-        }
-        to {
-            stroke-dasharray: 60 80;
-        }
-    }
-
-    @keyframes rotate {
-        0% {
-            border-radius: 40%;
-            transform: translate(-50%, 50%) scaleY(.6) rotate(0deg);
-        }
-        50% {
-            border-radius: 20%;
-        }
-        100% {
-            border-radius: 40%;
-            transform: translate(-50%, 50%) scaleY(.6) rotate(360deg);
-        }
+    .icon-cont:hover {
+        padding-bottom: .5rem;
+        opacity: 50%;
     }
 </style>
     
-<div use:scroll class="w-full h-[100vh] relative overflow-hidden bg-black">
-    <div class="w-full h-full flex flex-col items-center justify-center gap-20 bg-light-100 gradient relative">
+<div use:scroll class="header-container primary">
+    <div class="absolute top-4 right-8">
+        <DarkModeToggle class="w-11" />
+    </div>
+    <div class="w-full h-full flex flex-col items-center justify-center gap-20 relative">
         <div class="flex flex-col items-start px-10">
-            <div class="text-8xl font-bold text-teal-100" use:typewriter>Ethan Behrends</div>
-            <div class="text-2xl source-code-pro text-teal-600" use:typewriter={{delay: 3000, keepCursor: true}}>Software Engineer</div>
+            <div class="primary l-15 text-8xl scandia-web font-semibold text-primary" use:typewriter>Ethan Behrends</div>
+            <div class="primary l-30 text-2xl source-code-pro text-primary" use:typewriter={{delay: 3000, keepCursor: true}}>Software Engineer</div>
         </div>
-        {#await sleep(6000) then}
-            <div class="" in:fly>
-                <div in:slide class="border-b border-r border-teal-300 button-clip group cursor-pointer">
-                    <div class=" active:bg-teal-300 active:text-black border-0 ring-1 ring-offset-transparent ring-teal-300 ring-offset-1 text-teal-300 p-4 text-2xl transition duration-200 relative transform group-hover:-translate-y-2 group-hover:-translate-x-2">
+        {#await sleep(0) then}
+            <div in:fly={{y: 200}}>
+                <div class="button">
+                    <div class="text-white">
                         Get In Touch
                     </div>
                 </div>
 
             </div>
         {/await}
-
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="pointer-events-none w-[200vh] h-[200vh] absolute right-0 -bottom-50" style="transform: rotate(90deg)" viewBox="0 0 100 100">
-            <circle style="stroke-width: .1px" class="stroke-teal-200 opacity-50 fill-transparent draw" cx="50" cy="54" r="51" />
-            <circle style="stroke-width: .1px" class="stroke-teal-200 opacity-50 fill-transparent draw" cx="50" cy="54" r="50" />
-            <circle style="stroke-width: .1px" class="stroke-teal-200 opacity-50 fill-transparent draw" cx="50" cy="54" r="49" />
-            <circle style="stroke-width: .1px" class="stroke-teal-200 opacity-50 fill-transparent draw" cx="50" cy="54" r="48" />
-        </svg>
-        <div class="absolute bottom-0 left-20 flex flex-col items-center gap-2 text-teal-200">
+        <div class="absolute bottom-0 right-20 flex flex-col items-center gap-2 text-primary primary l-15">
             {#each icons as {icon, href, alt}, i}
             {#if i != 0}
-            <div class="w-[1px] h-5 bg-teal-200"></div>
+            <div class="w-0.5 h-5 bg-current"></div>
             {/if}
-            <a {href} {alt} target="_blank" class="group pb-0 hover:pb-2 transition-all duration-200 ">
-                <Icon {icon} width="28px" height="28px" class="" />
+            <a {href} {alt} target="_blank" class="icon-cont">
+                <Icon {icon} width="32px" height="32px" class="" />
             </a>
             {/each}
-            <div class="w-[1px] h-20 bg-teal-200"></div>
+            <div class="w-0.5 h-20 bg-current"></div>
         </div>
     </div>
 

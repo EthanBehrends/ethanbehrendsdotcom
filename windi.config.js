@@ -1,12 +1,9 @@
 export default {
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        black: "var(--color-black)",
-        dark: "var(--color-dark)",
-        darkGreen: "var(--color-darkGreen)",
-        green: "var(--color-green)",
-        white: "var(--color-white)",
+        primary: "hsla(var(--primary-h) var(--primary-s) var(--primary-l) / var(--primary-a))",
       }
     },
   },

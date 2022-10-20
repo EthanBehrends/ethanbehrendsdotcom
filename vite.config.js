@@ -3,11 +3,33 @@ import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { windi } from "svelte-windicss-preprocess"
 import viteWindi from "vite-plugin-windicss"
 import sveltePreprocess from 'svelte-preprocess'
+import Unocss from "unocss/vite"
+import { extractorSvelte } from '@unocss/core'
+import { presetUno } from "unocss"
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    port: 443,
+    strictPort: true,
+    https: true,
+  },
   plugins: [
-    viteWindi({}),
+    Unocss({
+      extractors: [extractorSvelte],
+      presets: [
+        presetUno()
+      ],
+      theme: {
+        colors: {
+          primary: "var(--color-primary, hsla(var(--primary-h) var(--primary-s) var(--primary-l) / var(--primary-a)))"
+        }
+      },
+      rules: [
+        [/^l-([\d]{1,2})$/, ([, d]) => ({ "--primary-l": `${d}%`})]
+      ]
+    }),
     svelte({
       extensions: [".svelte"],
       preprocess: [
