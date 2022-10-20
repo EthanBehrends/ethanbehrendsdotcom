@@ -132,8 +132,8 @@ import DarkModeToggle from "./components/DarkModeToggle.svelte";
     </div>
     <div class="w-full h-full flex flex-col items-center justify-center gap-20 relative">
         <div class="flex flex-col items-start px-10">
-            <div class="primary l-15 text-8xl scandia-web font-semibold text-primary" use:typewriter>Ethan Behrends</div>
-            <div class="primary l-30 text-2xl source-code-pro text-primary" use:typewriter={{delay: 3000, keepCursor: true}}>Software Engineer</div>
+            <div class="primary l-15 text-6xl sm:text-8xl scandia-web font-semibold text-primary" use:typewriter>Ethan Behrends</div>
+            <div class="primary l-30 text-xl sm:text-2xl source-code-pro text-primary" use:typewriter={{delay: 3000, keepCursor: true}}>Software Engineer</div>
         </div>
         {#await sleep(0) then}
             <div in:fly={{y: 200}}>
