@@ -93,7 +93,7 @@ $: document.body.style = `
 
 <Header />
 
-<div class="w-full min-h-[100vh] flex flex-col items-center justify-center p-16 bg-dark text-white">
+<!-- <div class="w-full min-h-[100vh] flex flex-col items-center justify-center p-16 bg-dark text-white">
   <div class="flex max-w-250 gap-8 justify-between flex-col lg:flex-row">
     <div class="flex flex-col gap-8">
       <div class="text-4xl bree-serif mb-4">
@@ -136,4 +136,4 @@ $: document.body.style = `
 
   </div>
 
-</div>
+</div> -->
