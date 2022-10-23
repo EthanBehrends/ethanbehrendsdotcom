@@ -78,7 +78,7 @@ import DarkModeToggle from "./components/DarkModeToggle.svelte";
 
     .header-container {
         width: 100%;
-        height: 100vh;
+        height: 100%;
         position: relative; 
         overflow: hidden;
         background: hsla(var(--primary-h) var(--primary-s) 95% / 100%) radial-gradient(hsla(var(--primary-h) var(--primary-s) var(--primary-l) / 40%) 12%, transparent 50%);
@@ -86,6 +86,7 @@ import DarkModeToggle from "./components/DarkModeToggle.svelte";
         background-size: 250% 60%;
         background-position-y: 175%;
         background-position-x: 50%;
+        background-attachment: fixed;
     }
 
     :global(.dark .header-container) {
@@ -126,7 +127,7 @@ import DarkModeToggle from "./components/DarkModeToggle.svelte";
     }
 </style>
     
-<div use:scroll class="header-container primary">
+<div class="header-container primary">
     <div class="absolute top-4 right-8">
         <DarkModeToggle class="w-11" />
     </div>
@@ -154,7 +155,7 @@ import DarkModeToggle from "./components/DarkModeToggle.svelte";
                 <Icon {icon} width="32px" height="32px" class="" />
             </a>
             {/each}
-            <div class="w-0.5 h-20 bg-current"></div>
+            <div class="w-0.5 h-28 bg-current"></div>
         </div>
     </div>
 

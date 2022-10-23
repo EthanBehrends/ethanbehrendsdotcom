@@ -6,6 +6,7 @@ import sveltePreprocess from 'svelte-preprocess'
 import Unocss from "unocss/vite"
 import { extractorSvelte } from '@unocss/core'
 import { presetUno } from "unocss"
+import transformerDirective from '@unocss/transformer-directives'
 
 
 // https://vitejs.dev/config/
@@ -28,6 +29,9 @@ export default defineConfig({
       },
       rules: [
         [/^l-([\d]{1,2})$/, ([, d]) => ({ "--primary-l": `${d}%`})]
+      ],
+      transformers: [
+        transformerDirective()
       ]
     }),
     svelte({

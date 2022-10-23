@@ -1,12 +1,12 @@
 <script>
-import PowerToast from "./components/PowerToast.svelte";
+import ToastController from "./ToastController.svelte";
 
 export let controls = {}
 
-let toastPopup
+let toast
 
 $: controls = {
-    toastPopup
+    toast
 }
 
 </script>
@@ -14,7 +14,7 @@ $: controls = {
 <div class="pointer-events-none w-full h-full fixed z-99999 p-4">
     <div class="relative w-full h-full">
         <div class="absolute bottom-0 right-0 top-0">
-            <PowerToast bind:popup={toastPopup}/>
+            <ToastController bind:toast />
         </div>
     </div>
 </div>
