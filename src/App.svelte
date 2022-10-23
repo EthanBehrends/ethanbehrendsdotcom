@@ -1,7 +1,7 @@
 <script>
 import Header from "./Header.svelte";
 import Resume from "./components/resume/Resume.svelte"
-import AppControls from "./components/appControls.svelte"
+import AppControls from "./components/AppControls.svelte"
 import ScrollAnimation from "./components/ScrollAnimation.svelte"
 import { fly } from "svelte/transition"
 import { cubicOut } from "svelte/easing"
