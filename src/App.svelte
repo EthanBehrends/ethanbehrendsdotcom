@@ -152,9 +152,9 @@ onMount(() => {
   <Header />
 </div>
 
-<div class="w-full h-screen flex flex-wrap gap-4 p-8 rounded-t-3xl -mt-8 primary l-92 bg-primary relative content-shadow z-1 justify-center md:items-center">
+<div class="w-full min-h-screen h-auto flex flex-wrap gap-4 p-8 rounded-t-3xl -mt-8 primary l-92 bg-primary relative content-shadow z-1 justify-center md:items-center">
   <div class="flex-grow md:h-1/2 flex flex-col md:flex-row max-w-250 justify-center gap-8">
-    <div class="flex-grow max-w-full flex flex-col gap-4 text-center md:text-left">
+    <div class="flex-grow min-h-100 max-w-full flex flex-col gap-4 text-center md:text-left">
       <ScrollAnimation>
         <div class="text-5xl font-medium primary text-primary l-15" transition:fly={{duration: 800, easing: cubicOut, x: -200}}>Get to know me</div>
       </ScrollAnimation>
@@ -182,7 +182,7 @@ onMount(() => {
         </p>
       </ScrollAnimation>
     </div>
-    <div class="flex-grow max-w-full flex flex-col items-end gap-4 pr-8">
+    <div class="flex-grow min-h-100 max-w-full flex flex-col items-end gap-4 pr-8">
       <ScrollAnimation>
         <a href="assets/Ethan_Behrends_Resume.pdf" target="_blank" class="primary" transition:fly={{duration: 800, easing: cubicOut, x: 200}}>resume</a>
       </ScrollAnimation>
