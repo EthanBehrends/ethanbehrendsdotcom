@@ -50,7 +50,7 @@ import DarkModeToggle from "./components/DarkModeToggle.svelte";
 
     const icons = [{
         icon: "lucide:github",
-        href: "https://google.com",
+        href: "https://github.com/EthanBehrends",
         alt: "Check out my GitHub!"
     }, {
         icon: "lucide:linkedin",
