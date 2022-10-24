@@ -182,7 +182,7 @@ onMount(() => {
         </p>
       </ScrollAnimation>
     </div>
-    <div class="flex-grow min-h-100 max-w-full flex flex-col items-end gap-4 pr-8">
+    <div class="flex-grow min-h-100 max-w-full flex flex-col items-center md:items-end gap-4 md:pr-8">
       <ScrollAnimation>
         <a href="assets/Ethan_Behrends_Resume.pdf" target="_blank" class="primary" transition:fly={{duration: 800, easing: cubicOut, x: 200}}>resume</a>
       </ScrollAnimation>
