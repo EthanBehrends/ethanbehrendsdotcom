@@ -20,7 +20,7 @@ onMount(() => {
 })
 </script>
 
-<div bind:this={container}>
+<div class="flex flex-col" bind:this={container}>
     {#if inView}
         <slot />
     {/if}

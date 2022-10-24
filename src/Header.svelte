@@ -136,7 +136,7 @@ import DarkModeToggle from "./components/DarkModeToggle.svelte";
             <div class="primary l-15 text-6xl sm:text-8xl scandia-web font-semibold text-primary" use:typewriter>Ethan Behrends</div>
             <div class="primary l-30 text-xl sm:text-2xl source-code-pro text-primary" use:typewriter={{delay: 3000, keepCursor: true}}>Software Engineer</div>
         </div>
-        {#await sleep(0) then}
+        <!-- {#await sleep(0) then}
             <div in:fly={{y: 200}}>
                 <div class="button">
                     <div class="text-white">
@@ -145,7 +145,7 @@ import DarkModeToggle from "./components/DarkModeToggle.svelte";
                 </div>
 
             </div>
-        {/await}
+        {/await} -->
         <div class="absolute bottom-0 right-20 flex flex-col items-center gap-2 text-primary primary l-15">
             {#each icons as {icon, href, alt}, i}
             {#if i != 0}

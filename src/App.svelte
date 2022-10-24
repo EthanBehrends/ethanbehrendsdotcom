@@ -80,8 +80,7 @@ onMount(() => {
   }
 
   p {
-    @apply pt-sans text-primary;
-    text-indent: 2rem;
+    @apply pt-sans text-primary md\:indent-lg;
     line-height: 1.75rem;
     font-size: 1.075rem;
     max-width: 500px;
