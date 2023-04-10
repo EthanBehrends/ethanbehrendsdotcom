@@ -14,7 +14,7 @@ export default defineConfig({
   },
   plugins: [
     plugin(({ addDynamic }) => {
-      addDynamic("l", ({ Utility, Property, Style }) => {
+      addDynamic("l-", ({ Utility, Property, Style }) => {
         const value = Utility.handler.handleNumber(1, 100, "int").value
 
         if (value) {
@@ -23,7 +23,7 @@ export default defineConfig({
           })
         }
       })
-      addDynamic("a", ({ Utility, Property, Style }) => {
+      addDynamic("a-", ({ Utility, Property, Style }) => {
         const value = Utility.handler.handleNumber(1, 100, "int").value
 
         if (value) {
