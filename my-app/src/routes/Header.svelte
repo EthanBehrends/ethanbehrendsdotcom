@@ -14,47 +14,53 @@
     let showInfo = sleep(2000)
 
     let animating = false
-    const onScroll = () => {
-        if (!headerElement || animating) return
+    // const onScroll = () => {
+    //     if (!headerElement || animating) return
 
-        animating = true
-        requestAnimationFrame(() => {
-            headerElement.style = `transform: translateY(${window.scrollY / 1.6}px)`
-            animating = false
-        })
-    }
+    //     animating = true
+    //     requestAnimationFrame(() => {
+    //         if (headerElement) headerElement.style = `transform: translateY(${window.scrollY / 1.8}px)`
+    //         animating = false
+    //     })
+    // }
 
 
 
-    onMount(() => {
-        document.addEventListener("scroll", onScroll)
+    // onMount(() => {
+    //     document.addEventListener("scroll", onScroll)
 
-        onScroll()
+    //     onScroll()
         
-        return () => {
-            document.removeEventListener("scroll", onScroll)
-        }
-    })
+    //     return () => {
+    //         document.removeEventListener("scroll", onScroll)
+    //     }
+    // })
 
-    const typewriter = (node: HTMLElement, options?: { duration?: number, delay?: number, keepCursor?: boolean }) => {
+    const typewriter = async (node: HTMLElement, options?: { duration?: number, delay?: number, keepCursor?: boolean }) => {
         let text = (node.innerText ?? "").split("")
         let duration = options?.duration ?? 100
         let delay = options?.delay ?? 200
         let keepCursor = options?.keepCursor ?? false
+        let height = node.offsetHeight
 
         node.innerText = ""
+        node.style.minHeight = `${height}px`
+        node.style.minWidth = "1px"
 
-        new Promise(res => setTimeout(res, delay)).then(() => {
-            node.classList.add("typing")
-    
-            let interval = setInterval(() => {
-                node.innerText += text.shift()
-                if (!text.length) {
-                    clearInterval(interval)
-                    if (!keepCursor) node.classList.remove("typing")
-                }
-            }, duration)
-        })
+        await sleep(delay)
+
+        node.classList.add("typing")
+
+        node.style.minHeight = "unset"
+        node.style.minWidth = "unset"
+
+        let interval = setInterval(() => {
+            node.innerText += text.shift()
+            if (!text.length) {
+                clearInterval(interval)
+                if (!keepCursor) node.classList.remove("typing")
+            }
+        }, duration)
 
 
         
@@ -77,7 +83,7 @@
         }
     })
 
-    $: scrolled = scrollY > innerHeight / 2 - 40
+    $: scrolled = scrollY > innerHeight * .9 - 20
 </script>
 
 <style>
@@ -102,16 +108,32 @@
         height: 100vh;
         position: relative; 
     }
+
+    .fixed-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        --shadow-color: hsla(0, 0%, 0%, .3);
+        box-shadow: 0px 2px 6px -2px var(--shadow-color);
+    }
+
+    :global(.dark) .fixed-header {
+        --shadow-color: hsla(0, 0%, 40%, .9);
+    }
 </style>
 
 <svelte:window bind:scrollY bind:innerHeight />
     
-<div class="fixed top-4 right-8">
-    <DarkModeToggle size="48px" />
+<div class="fixed top-2.825 right-4 sm:right-8 z-100">
+    <div class="w-10 h-10 sm:w-12 sm:h-12">
+        <DarkModeToggle size="100%" />
+    </div>
 </div>
-<div class="header-container primary">
+<div class="header-container" style={`--header-offset: ${scrollY * .5}px`}>
     {#if !scrolled}
-        <div class="w-full h-full flex flex-col items-center justify-center gap-20 relative" bind:this={headerElement}>
+        <div class="w-full h-full flex flex-col items-center justify-center gap-20 relative" style="transform: translateY(var(--header-offset))" bind:this={headerElement}>
             <div class="flex flex-col items-start px-10">
                 <div class="primary l-15 text-6xl sm:text-8xl scandia-web font-semibold text-primary"  in:receive={{key: "main"}} out:send={{key: "main"}} class:hidden={!browser} use:typewriter>Ethan Behrends</div>
                 <div class="primary l-30 text-xl sm:text-2xl source-code-pro text-primary" in:receive={{key: "sec"}} out:send={{key: "sec"}} class:hidden={!browser} use:typewriter={{delay: 3000, keepCursor: true}}>Software Engineer</div>
@@ -121,8 +143,8 @@
 </div>
 
 {#if scrolled}
-    <div class="fixed top-4 left-4 flex gap-4 items-baseline">
+    <div class="fixed-header p-4 flex gap-4 items-baseline primary bg-primary l-95" transition:fade={{duration: 100}}>
         <div class="primary l-15 text-xl sm:text-4xl scandia-web font-semibold text-primary" in:receive={{key: "main"}} out:send={{key: "main"}} >Ethan Behrends</div>
-        <div class="primary l-30 text-xl sm:text-xl source-code-pro text-primary" in:receive={{key: "sec"}} out:send={{key: "sec"}}>Software Engineer</div>
+        <div class="primary l-30 text-lg sm:text-xl source-code-pro text-primary" in:receive={{key: "sec"}} out:send={{key: "sec"}}>Software Engineer</div>
     </div>
 {/if}

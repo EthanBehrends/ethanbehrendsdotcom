@@ -71,6 +71,7 @@
 
     .app-container {
         width: 100%;
+        overflow: hidden;
         position: relative; 
         background: hsla(var(--primary-h) var(--primary-s) 95% / 100%) radial-gradient(hsla(var(--primary-h) var(--primary-s) var(--primary-l) / 40%) 12%, transparent 50%);
         background-repeat: no-repeat;

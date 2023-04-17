@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Icon from "@iconify/svelte";
     import { cubicInOut } from "svelte/easing"
 
     let key = 0
@@ -34,6 +35,7 @@
                     z-index: 1;
                     position: absolute;
                     top: 0;
+                    pointer-events: none;
                 `
             }
         }
@@ -55,11 +57,15 @@
 
 
 <div class="relative flex flex-col items-center gap-10 resume-cont">
-    <a class="relative h-min">
-        {#key key}
-            <img src="/Resume.png" alt="Resume" on:click={() => key += 1} class="resume" out:paperOut />
-        {/key}
-    </a>
+    {#key key}
+        <a class="relative h-min group resume" href="resume.pdf" download="Ethan_Behrends_Resume.pdf" out:paperOut on:click={() => key += 1} >
+            <img src="/Resume.png" alt="Resume"/>
+            <div class="absolute inset-0 pointer-events-none bg-cool-gray-700 bg-opacity-80 flex flex-col gap-4 items-center justify-center opacity-0 transition duration-200 group-hover:opacity-100 text-white">
+                <Icon icon="material-symbols:download" width="4rem" height="4rem"/>
+                <div class="font-semibold text-xl">Download my resume!</div>
+            </div>
+        </a>
+    {/key}
     <div class="resume-shadow" />
 </div>
 
@@ -71,10 +77,11 @@
         border-radius: .5rem;
         box-shadow: 0px 3px 10px -5px rgba(0,0,0,0.75);
         border: 1px solid rgba(0,0,0,0.1);
-        width: 600px;
+        width: 100%;
         cursor: pointer;
         transition: 0.3s ease;
         transform: translate(0);
+        overflow: hidden;
     }
 
     .resume:hover {
@@ -95,5 +102,6 @@
         width: 85%;
         background-color: rgba(0,0,0,0.4);
         filter: blur(18px);
+        backdrop-filter: blur(18px);
     }
 </style>
