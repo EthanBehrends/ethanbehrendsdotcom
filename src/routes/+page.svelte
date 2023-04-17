@@ -53,7 +53,7 @@
 <div class="w-full scandia-web relative flex flex-col items-center z-1 px-12 pb-60 lg:pb-36 pt-12">
     <div class="flex flex-col lg:flex-row w-full max-w-300 gap-x-12 gap-y-24">
         <div class="flex-grow flex flex-col items-center">
-            <div class="max-w-140 w-full text-primary primary flex flex-col gap-2 fade-in" style="--primary-l: 0.05" use:inView>
+            <div class="max-w-140 w-full text-primary primary flex flex-col gap-2 fade-in" style="--primary-l: 5%" use:inView>
                 <div class="text-4xl font-semibold">
                     Hey there!
                 </div>
