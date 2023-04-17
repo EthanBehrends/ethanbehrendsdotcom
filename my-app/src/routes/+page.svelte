@@ -3,6 +3,8 @@
     import { onMount } from "svelte";
     import { cubicInOut } from "svelte/easing"
     import Resume from "./Resume.svelte";
+    import Icon from "@iconify/svelte";
+	import CopyIcon from "$lib/CopyIcon.svelte";
 
     const content = [
         "I'm a developer and tech-enthusiast with over a decade of hobbyist experience and 2+ years of professional experience under my belt.",
@@ -65,7 +67,10 @@
     
                     <a href="https://linkedin.com/in/ethan-behrends" target="_blank" class="primary">linkedin</a>
             
-                    <a on:click={() => copyTextToClipboard("hire.ethanb@gmail.com")} target="_blank" class="primary">hire.ethanb@gmail.com</a>
+                    <div class="flex gap-4 items-center">
+                        <a target="_blank" href="mailto:hire\.ethanb@gmail.com" class="primary">hire.ethanb@gmail.com</a>
+                        <CopyIcon content="hire.ethanb@gmail.com" />
+                    </div>
                 </div>
     
             </div>

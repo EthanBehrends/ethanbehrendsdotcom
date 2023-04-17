@@ -32,18 +32,4 @@
 </button>
 
 <style>
-    button {
-        all: unset;
-    }
-
-    button:focus-visible {
-        outline: 1px solid var(--color-primary);
-        outline-offset: .25rem;
-    }
-
-    button:focus-visible .inner-cont, button:hover .inner-cont {
-        background: var(--color-primary);
-    }
-
-
 </style>
