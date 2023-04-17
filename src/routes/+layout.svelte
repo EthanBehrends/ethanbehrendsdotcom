@@ -24,7 +24,7 @@
 <div class="app-container scandia-web" style={`--primary-h: ${primary.h}; --primary-s: ${primary.s}; --primary-l: ${primary.l}; --primary-a: 100%;`}>
   <slot />
 
-  <div class="fixed bottom-0 right-20 flex flex-col items-center text-primary primary z-100" style="--primary-l: .15">
+  <div class="fixed bottom-0 right-20 flex flex-col items-center text-primary primary z-100" style="--primary-l: 15%">
     {#each icons as {icon, href, alt}, i}
       {#if i != 0}
       <div class="w-0.5 h-5 bg-current"></div>

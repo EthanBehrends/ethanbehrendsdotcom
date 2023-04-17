@@ -136,16 +136,16 @@
     {#if !scrolled}
         <div class="w-full h-full flex flex-col items-center justify-center gap-20 relative" style="transform: translateY(var(--header-offset))" bind:this={headerElement}>
             <div class="flex flex-col items-start px-10">
-                <div style="--primary-l: 0.15" class="primary text-6xl sm:text-8xl scandia-web font-semibold text-primary"  in:receive={{key: "main"}} out:send={{key: "main"}} class:hidden={!browser} use:typewriter>Ethan Behrends</div>
-                <div style="--primary-l: 0.30" class="primary text-xl sm:text-2xl source-code-pro text-primary" in:receive={{key: "sec"}} out:send={{key: "sec"}} class:hidden={!browser} use:typewriter={{delay: 3000, keepCursor: true}}>Software Engineer</div>
+                <div style="--primary-l: 15%" class="primary text-6xl sm:text-8xl scandia-web font-semibold text-primary"  in:receive={{key: "main"}} out:send={{key: "main"}} class:hidden={!browser} use:typewriter>Ethan Behrends</div>
+                <div style="--primary-l: 30%" class="primary text-xl sm:text-2xl source-code-pro text-primary" in:receive={{key: "sec"}} out:send={{key: "sec"}} class:hidden={!browser} use:typewriter={{delay: 3000, keepCursor: true}}>Software Engineer</div>
             </div>
         </div>
     {/if}
 </div>
 
 {#if scrolled}
-    <div style="--primary-l: 0.95" class="fixed-header p-4 flex gap-4 items-baseline primary bg-primary" transition:fade={{duration: 100}}>
-        <div style="--primary-l: 0.15" class="primary text-xl sm:text-4xl scandia-web font-semibold text-primary" in:receive={{key: "main"}} out:send={{key: "main"}} >Ethan Behrends</div>
-        <div style="--primary-l: 0.30" class="primary text-lg sm:text-xl source-code-pro text-primary" in:receive={{key: "sec"}} out:send={{key: "sec"}}>Software Engineer</div>
+    <div style="--primary-l: 95%" class="fixed-header p-4 flex gap-4 items-baseline primary bg-primary" transition:fade={{duration: 100}}>
+        <div style="--primary-l: 15%" class="primary text-xl sm:text-4xl scandia-web font-semibold text-primary" in:receive={{key: "main"}} out:send={{key: "main"}} >Ethan Behrends</div>
+        <div style="--primary-l: 30%" class="primary text-lg sm:text-xl source-code-pro text-primary" in:receive={{key: "sec"}} out:send={{key: "sec"}}>Software Engineer</div>
     </div>
 {/if}

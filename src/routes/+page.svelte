@@ -87,7 +87,7 @@
 
   a {
     @apply text-primary block cursor-pointer;
-    --primary-l: .25;
+    --primary-l: 25%;
     position: relative;
     z-index: 1;
     font-size: 1.75rem;
