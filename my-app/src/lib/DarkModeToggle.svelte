@@ -1,7 +1,18 @@
 <script context="module">
+    import { browser } from "$app/environment";
     import { writable } from "svelte/store"
 
     let darkMode = writable(false)
+
+    darkMode.subscribe(value => {
+        if (browser) document.body.classList[value ? "add" : "remove"]("dark")
+    })
+
+    if (browser) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            darkMode.set(e.matches)
+        })
+    }
 </script>
 
 <script>
@@ -11,8 +22,6 @@
 
     const setDarkMode = (to = !$darkMode) => {
         darkMode.set(to)
-
-        document.body.classList[to ? "add" : "remove"]("dark")
     }
 </script>
 
