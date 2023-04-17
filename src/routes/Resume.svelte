@@ -59,7 +59,7 @@
 <div class="relative flex flex-col items-center gap-10 resume-cont">
     {#key key}
         <a class="relative h-min group resume" href="resume.pdf" download="Ethan_Behrends_Resume.pdf" out:paperOut on:click={() => key += 1} >
-            <img src="/Resume.png" alt="Resume"/>
+            <img src="/Resume.png" alt="Resume" loading="lazy"/>
             <div class="absolute inset-0 pointer-events-none bg-cool-gray-700 bg-opacity-80 flex flex-col gap-4 items-center justify-center opacity-0 transition duration-200 group-hover:opacity-100 text-white">
                 <Icon icon="material-symbols:download" width="4rem" height="4rem"/>
                 <div class="font-semibold text-xl">Download my resume!</div>
