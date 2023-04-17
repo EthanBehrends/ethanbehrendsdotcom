@@ -25,3 +25,11 @@ button:focus-visible {
 button:focus-visible .inner-cont, button:hover .inner-cont {
     background: var(--color-primary);
 }
+
+.scandia-web {
+    font-family: 'scandia-web', sans-serif;
+}
+
+.source-code-pro {
+    font-family: 'source-code-pro', monospace;
+}

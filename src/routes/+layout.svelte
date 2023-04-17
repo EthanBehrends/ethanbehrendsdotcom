@@ -1,5 +1,4 @@
 <script lang="ts">
-    import "../fonts.css";
     import "../global.css";
     import { browser } from "$app/environment";
     import Icon from "@iconify/svelte"
@@ -22,7 +21,7 @@
     }]
 </script>
 
-<div class="app-container" style={`--primary-h: ${primary.h}; --primary-s: ${primary.s}; --primary-l: ${primary.l}; --primary-a: 100%;`}>
+<div class="app-container scandia-web" style={`--primary-h: ${primary.h}; --primary-s: ${primary.s}; --primary-l: ${primary.l}; --primary-a: 100%;`}>
   <slot />
 
   <div class="fixed bottom-0 right-20 flex flex-col items-center text-primary primary l-15 z-100">
@@ -39,21 +38,7 @@
 </div>
 
 <style windi:preflights:global windi:safelist:global windi:global global>
-    .scandia-web {
-      font-family: 'scandia-web', serif;
-    }
-    .scandia-line-web {
-      font-family: 'scandia-line-web', serif;
-    }
-    .source-code-pro {
-      font-family: 'source-code-pro', serif;
-    }
-    .bree-serif {
-      font-family: 'Bree Serif', serif;
-    }
-    .pt-sans {
-      font-family: 'PT Sans', serif;
-    }
+
   
     .primary {
       transition: .4s;
