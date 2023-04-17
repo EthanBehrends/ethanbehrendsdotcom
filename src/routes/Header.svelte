@@ -36,7 +36,7 @@
     //     }
     // })
 
-    const typewriter = async (node: HTMLElement, options?: { duration?: number, delay?: number, keepCursor?: boolean }) => {
+    const typewriter = (node: HTMLElement, options?: { duration?: number, delay?: number, keepCursor?: boolean }) => {
         let text = (node.innerText ?? "").split("")
         let duration = options?.duration ?? 100
         let delay = options?.delay ?? 200
@@ -45,24 +45,25 @@
 
         node.innerText = ""
         node.style.minHeight = `${height}px`
-        node.style.minWidth = "1px"
-
-        await sleep(delay)
-
-        node.classList.add("typing")
-
-        node.style.minHeight = "unset"
-        node.style.minWidth = "unset"
-
-        let interval = setInterval(() => {
-            node.innerText += text.shift()
-            if (!text.length) {
-                clearInterval(interval)
-                if (!keepCursor) node.classList.remove("typing")
-            }
-        }, duration)
+        node.style.minWidth = "1px";
 
 
+        (async () => {
+            await sleep(delay)
+    
+            node.classList.add("typing")
+    
+            node.style.minHeight = "unset"
+            node.style.minWidth = "unset"
+    
+            let interval = setInterval(() => {
+                node.innerText += text.shift()
+                if (!text.length) {
+                    clearInterval(interval)
+                    if (!keepCursor) node.classList.remove("typing")
+                }
+            }, duration)
+        })()
         
         return {
             destroy: () => {
