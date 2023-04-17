@@ -25,8 +25,8 @@
     }
 </script>
 
-<button class="primary l-15 text-primary z-100 rounded-full relative cursor-pointer" style="width: {size}; height: {size}" on:click={() => setDarkMode()}>
-    <div class="inner-cont primary l-85 p-2 rounded-full">
+<button class="primary text-primary z-100 rounded-full relative cursor-pointer" style="--primary-l: .15; width: {size}; height: {size}" on:click={() => setDarkMode()}>
+    <div class="inner-cont primary p-2 rounded-full" style="--primary-l: .85">
         <TransitionIcon icon={$darkMode ? "material-symbols:dark-mode" : "material-symbols:light-mode"} class="w-full" style="aspect-ratio: 1 / 1" />
     </div>
 </button>
