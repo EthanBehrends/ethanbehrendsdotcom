@@ -75,13 +75,12 @@
     }
 
     :global(.bg-primary) {
-      @apply bg-primary;
+      background: var(--color-primary);
     }
 
     :global(.text-primary) {
-      @apply text-primary;
+      color: var(--color-primary);
     }
-
 
     .icon-cont {
         padding: .5rem;
