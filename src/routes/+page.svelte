@@ -69,7 +69,7 @@
             
                     <div class="flex gap-4 items-center">
                         <a target="_blank" href="mailto:hire.ethanb@gmail.com" class="primary">hire.ethanb@gmail.com</a>
-                        <CopyIcon content="hire.ethanb@gmail.com" />
+                        <CopyIcon text="hire.ethanb@gmail.com" />
                     </div>
                 </div>
     
@@ -84,7 +84,6 @@
 </div>
 
 <style>
-
   a {
     @apply text-primary block cursor-pointer;
     --primary-l: 25%;
