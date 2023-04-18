@@ -85,14 +85,16 @@
 
 <style>
   a {
-    @apply text-primary block cursor-pointer;
+    display: block;
+    cursor: pointer;
+    color: var(--color-primary);
     --primary-l: 25%;
     position: relative;
     z-index: 1;
     font-size: 1.75rem;
   }
   a:hover {
-    @apply opacity-60;
+    opacity: .6;
   }
   a::before {
     content: "";
