@@ -5,6 +5,7 @@ import interactionVaraints from "@windicss/plugin-interaction-variants"
 
 export default defineConfig({
   darkMode: "class",
+  safelist: ["bg-primary", "text-primary"],
   theme: {
     extend: {
       colors: {
