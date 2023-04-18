@@ -7,10 +7,10 @@ const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
 	preprocess: [
-		vitePreprocess(),
 		windi({
 			configPath: "windi.config.ts",
 		}),
+		vitePreprocess()
 	],
 
 	kit: {

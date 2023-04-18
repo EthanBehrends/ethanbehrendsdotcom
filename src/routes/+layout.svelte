@@ -74,6 +74,14 @@
         background-position-x: 50%;
     }
 
+    :global(.bg-primary) {
+      @apply bg-primary;
+    }
+
+    :global(.text-primary) {
+      @apply text-primary;
+    }
+
 
     .icon-cont {
         padding: .5rem;
