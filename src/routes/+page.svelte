@@ -68,7 +68,7 @@
                     <a href="https://linkedin.com/in/ethan-behrends" target="_blank" class="primary">linkedin</a>
             
                     <div class="flex gap-4 items-center">
-                        <a target="_blank" href="mailto:hire\.ethanb@gmail.com" class="primary">hire.ethanb@gmail.com</a>
+                        <a target="_blank" href="mailto:hire.ethanb@gmail.com" class="primary">hire.ethanb@gmail.com</a>
                         <CopyIcon content="hire.ethanb@gmail.com" />
                     </div>
                 </div>
