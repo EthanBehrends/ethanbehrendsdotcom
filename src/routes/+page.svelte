@@ -48,6 +48,10 @@
     }
 </script>
 
+<svelte:head>
+  <title>Ethan Behrends</title>
+</svelte:head>
+
 <Header />
 
 <div class="w-full scandia-web relative flex flex-col items-center z-1 px-12 pb-60 lg:pb-36 pt-12">
