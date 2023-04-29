@@ -1,8 +1,10 @@
 <script lang="ts">
     import "../global.css";
-    import { browser } from "$app/environment";
+    import { browser, dev } from "$app/environment";
     import Icon from "@iconify/svelte"
+    import { inject } from "@vercel/analytics"
 
+    inject({ mode: dev ? "development" : "production"})
 
     let primary = {
         h: "199deg",
