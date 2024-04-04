@@ -1,23 +1,16 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig, loadEnv } from 'vite';
+import Icons from 'unplugin-icons/vite';
+import { defineConfig } from 'vitest/config';
 
-
-export default defineConfig(({ mode, command}) => {
-	const env = loadEnv(mode, process.cwd(), '')
-	const { SSL_CERT, SSL_KEY } = env
-
-	return {
-		server: SSL_CERT && SSL_KEY ? {
-			port: 443,
-			https: {
-				hostname: "ethanbehrends.com",
-				port: 443,
-				key: SSL_KEY,
-				cert: SSL_CERT,
-			}
-		} : undefined,
-		plugins: [
-			sveltekit(),
-		]
+export default defineConfig({
+	plugins: [
+		sveltekit(),
+		Icons({
+			compiler: 'svelte',
+			autoInstall: true
+		})
+	],
+	test: {
+		include: ['src/**/*.{test,spec}.{js,ts}']
 	}
 });
