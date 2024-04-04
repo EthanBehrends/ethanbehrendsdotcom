@@ -29,7 +29,7 @@
 </script>
 
 <div class="dark flex h-full w-full flex-col items-center justify-center">
-	<div class="flex flex-col gap-2">
+	<div class="flex flex-col gap-2 p-16">
 		<h1 class="text-6xl font-bold">Ethan Behrends</h1>
 		<div class="flex items-center gap-4">
 			{#each subtitle as { icon, text, href }}
