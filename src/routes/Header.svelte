@@ -29,9 +29,9 @@
 </script>
 
 <div class="dark flex h-full w-full flex-col items-center justify-center">
-	<div class="flex flex-col gap-2 p-16">
-		<h1 class="text-6xl font-bold">Ethan Behrends</h1>
-		<div class="flex items-center gap-4">
+	<div class="flex flex-col gap-2 p-4">
+		<h1 class="text-4xl font-bold sm:text-6xl">Ethan Behrends</h1>
+		<div class="flex flex-col gap-4 text-sm sm:flex-row sm:text-base">
 			{#each subtitle as { icon, text, href }}
 				<a {href} target="_blank" rel="noopener noreferrer">
 					<svelte:component this={icon} class="h-6 w-6" />
